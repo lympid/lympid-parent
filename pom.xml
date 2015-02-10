@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lympid</groupId>
     <artifactId>lympid-parent</artifactId>
-    <version>0.9.0</version>
+    <version>0.9.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     
     <name>lympid-parent</name>  
@@ -14,6 +14,7 @@
         <name>Lympid</name>
         <url>http://lympid.com/</url>
     </organization>
+    
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -41,6 +42,20 @@
         <system>GitHub Issue Management</system>
         <url>https://github.com/lympid/${project.artifactId}/issues</url>
     </issueManagement>
+    
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
         
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -77,6 +92,10 @@
     
         <javadoc.maxmemory>1g</javadoc.maxmemory>
     </properties>
+    
+    <modules>
+        <module>../lympid-core</module>
+    </modules>
 
     <dependencies>
         <dependency>
@@ -465,7 +484,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
