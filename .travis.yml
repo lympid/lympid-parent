@@ -1,0 +1,12 @@
+#
+# Make sure to valid your YML before committing.
+#   http://lint.travis-ci.org/
+#
+language: java
+jdk:
+  - oraclejdk8
+
+branches:
+  only:
+    - master
+
