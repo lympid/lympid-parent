@@ -45,13 +45,13 @@
     
     <distributionManagement>
         <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
+            <id>ossrh</id>
             <name>Sonatype Nexus Snapshots</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
 
         <repository>
-            <id>sonatype-nexus-staging</id>
+            <id>ossrh</id>
             <name>Nexus Release Repository</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
@@ -92,10 +92,6 @@
     
         <javadoc.maxmemory>1g</javadoc.maxmemory>
     </properties>
-    
-    <modules>
-        <module>../lympid-core</module>
-    </modules>
 
     <dependencies>
         <dependency>
@@ -196,8 +192,9 @@
                     <artifactId>nexus-maven-plugin</artifactId>
                     <version>2.1</version>
                     <configuration>
+                        <serverId>ossrh</serverId>
                         <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                        <serverAuthId>sonatype-nexus-staging</serverAuthId>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
                     </configuration>
                 </plugin>
 
